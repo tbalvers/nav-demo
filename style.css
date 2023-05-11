@@ -1,0 +1,252 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
+
+.nav {
+    font-family: sans-serif;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    background-color: rgb(198, 209, 253);
+    color: #000000;
+    font-weight: bold;
+    font-size: 1.1rem;
+    position: relative;
+}
+
+.arrow {
+    border-left: solid 2px black;
+    border-bottom: solid 2px black;
+    transform: rotate(-45deg);
+    display: inline-block;
+    width: 0.5rem;
+    height: 0.5rem;
+    vertical-align: middle;
+    margin-bottom: 7px;
+    margin-left: 5px;
+}
+
+.navcontent {
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px;
+    color: #212529;
+    position: relative;
+}
+
+.tab {
+    position: absolute;
+    min-width: 15ch;
+    left: 1rem;
+    top: 0.25rem;
+    text-align: center;
+}
+
+.arrow {
+    transition: transform 0.3s;
+}
+.active .arrow {
+    transform: rotate(135deg) translateY(-0.25rem) translateX(0.25rem);
+
+}
+
+.active .dropdown {
+    z-index: -1;
+    animation: dropdown ease-in-out 0.3s;
+    display: block;
+}
+
+
+.dropdown {
+    display: none;
+    background-color: rgb(198, 209, 253);
+    padding: 10px 0px;
+    width: 15ch;
+    text-align: center;
+    z-index: -1;
+    cursor: pointer;
+    border-top:1px solid rgb(175, 185, 223)
+}
+
+.nav .dropdown:hover {
+    filter: brightness(110%);
+}
+
+@keyframes dropdown {
+    0% {
+        transform: translateY(-0.25rem);
+        filter: opacity(0%);
+    }
+    100% {
+        filter: opacity(100%);
+        transform: translateY(0rem);
+    }
+}
+
+.tabtitle {
+    cursor: default;
+    user-select: none;
+    margin-bottom: 0.25rem;
+}
+
+.content {
+    background-color: #ffffff;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    height: 95vh;
+    width: 100vw;
+}
+
+.content ul {
+    padding: 0;
+    margin: 0;
+}
+
+.content li {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background-color: rgb(198, 209, 253);
+    width: 15ch;
+    text-align: center;
+    z-index: -1;
+    cursor: pointer;
+    border-top:1px solid rgb(175, 185, 223)
+}
+
+.content .arrow {
+    transform: rotate(-135deg);
+    vertical-align: 0%;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+}
+
+.content li li {
+    padding: 10px 0px;
+}
+
+.menu {
+    position: fixed;
+    display: inline-block;
+}
+
+.menuitem:hover {
+    filter:brightness(105%);
+}
+
+.menuitem:hover ul 
+{
+    display: block;
+    filter:brightness(105%);
+}
+
+ul li li:hover {
+    filter:brightness(105%);
+}
+
+#left_arrow:hover, #right_arrow:hover {
+    border-color: #333333;
+}
+
+.menuitem ul {
+    display: none;
+}
+
+.menuitem ul li {
+    display: block;
+}
+
+.menuheader {
+    padding: 10px;
+}
+
+.carousel_container {
+    display: grid;
+    grid-template-columns: 4ch 350px 4ch;
+    justify-items: center;
+    align-items: center;
+}
+
+.view_container {
+    justify-self: center;
+    max-width: 350px;
+    overflow-x: hidden;
+}
+
+.carousel {
+    display: grid;
+    position: relative;
+    left: 35px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+img {
+    width: 280px;
+}
+
+.circle_container {
+    display: grid;
+    justify-items: center;
+    justify-content: center;
+    grid-template-columns: repeat(4,1ch);
+    margin-top: 2rem;
+    gap: 1rem;
+    grid-column-start: 2;
+}
+
+.circle {
+    border: 1px solid black;
+    border-radius: 50%;
+    background-color: black;
+    width: 10px;
+    height: 10px;
+    cursor: pointer;
+}
+
+.active1 #circle1, .active2 #circle2, .active3 #circle3, .active4 #circle4 {
+    background-color: white;
+    cursor: default;
+}
+
+#left_arrow {
+    transform: scale(2.0) rotate(45deg);
+    cursor: pointer;
+}
+
+#right_arrow {
+    transform: scale(2.0) rotate(-135deg);
+    cursor: pointer;
+}
+
+.left {
+    animation: leftTranslate ease-in-out 1s;
+}
+
+@keyframes leftTranslate 
+{
+    0% {
+        transform: translateX(-290px);
+    }
+    100% {
+        transform: translateX(0px);
+    }
+}
+
+.right {
+    animation: rightTranslate ease-in-out 1s;
+}
+
+@keyframes rightTranslate 
+{
+    0% {
+        transform: translateX(290px);
+    }
+    100% {
+        transform: translateX(0px);
+    }
+}
